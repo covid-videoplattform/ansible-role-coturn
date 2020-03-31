@@ -1,1 +1,23 @@
 ---
+
+- name: required debian packages
+  apt:
+    pkg:
+      - coturn
+
+- name: configure firewall rules
+  ufw:
+      rule: "{{ item.rule }}"
+      port: "{{ item.port }}"
+      proto: "{{ item.proto }}"
+  with_items:
+      - { rule: 'allow', port: '22', proto: 'tcp' }
+
+- name: set logging
+  ufw:
+    logging: 'off'
+
+- name: set ufw policy
+  ufw:
+    state: enabled
+    policy: deny
