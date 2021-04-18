@@ -1,5 +1,7 @@
 ---
 
+- import_tasks: local_facts.yaml
+
 - name: required debian packages
   apt:
     pkg:

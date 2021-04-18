@@ -1,1 +1,2 @@
 ---
+turncredentials_secret: "{{ ansible_local['jitsi-meet'].turncredentials_secret }}"
